@@ -20,12 +20,7 @@ class CardContainer extends Component {
 
   getPokemon = async (value) => {
     const type = this.props.pokeTypes.filter( poke => poke.id === value )
-    console.log(type)
-    console.log(type[0].pokemon)
-    const pokemon = await type[0].pokemon.map( async poke => {
-      await Promise.all(getPokemonData(poke)))
-    }
-    // Promise.all(pokemon)
+    const pokemon = await getPokemonData(type[0].pokemon)
     console.log(pokemon)
     this.setState({pokemon})
     console.log(this.state.pokemon)

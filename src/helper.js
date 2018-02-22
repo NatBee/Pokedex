@@ -13,18 +13,17 @@ export const getTypes = async () => {
   }
 }
 
-export const getPokemonData = async (id) => {
+export const getPokemonData = async (ids) => {
 
   try{
-    const pokemonData = await fetch(`http://localhost:3001/pokemon/${id}`, {
-      method: 'GET',
-      headers: {
-        'Content-Type': 'application/json'
-      }
+    const pokemon = await ids.map( async poke => {
+      const data = await fetch(`http://localhost:3001/pokemon/${poke}`)
+      const response = data.json()
+
+      return response;
     })
-    const pokemonResults = await pokemonData.json();
-    console.log(pokemonResults)
-    return pokemonResults;
+  
+    return Promise.all(pokemon);
   } catch (error) {
     throw Error;
   }
