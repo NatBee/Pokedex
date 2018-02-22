@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { setPokeTypes } from '../../actions/index';
-import { getTypes } from '../../helper';
+import { getTypes, getPokemonData } from '../../helper';
 import Card from '../Card/Card';
 
 class CardContainer extends Component {
@@ -13,7 +13,11 @@ class CardContainer extends Component {
   }
 
   getPokemon = async (value) => {
-    console.log(value)
+    const type = this.props.pokeTypes.filter( poke => poke.id === value )
+    console.log(type)
+    console.log(type[0].pokemon)
+    const pokemon = await type[0].pokemon.map( poke => getPokemonData(poke))
+    console.log(pokemon)
   }
 
   renderCards = () => {
