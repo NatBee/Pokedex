@@ -1,13 +1,20 @@
 import React, { Component } from 'react';
 
-const Card = ({ id, name, pokemon }) => {
-  return (
-    <article>
-      <h3>{id}</h3>
-      <h3>{name}</h3>
-      <h3>{pokemon}</h3>
-    </article>
-  )
+class Card extends Component {
+  constructor(props){
+    super(props)
+  }
+
+  handleclick = () => {
+    this.props.getPokemon(this.props.id)
+  }
+  render() {
+    return (
+      <article>
+        <h3 onClick={this.handleclick}>{this.props.name}</h3>
+      </article>
+    )    
+  }
 }
 
 export default Card;
