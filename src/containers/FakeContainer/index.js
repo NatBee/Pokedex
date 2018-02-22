@@ -12,13 +12,20 @@ class FakeContainer extends Component {
   }
 
   render() {
+
+    if(this.props.pokeTypes.length > 0) {
+      return (
+        <div>
+          <button onClick={()=> {
+            this.getPokeTypes()
+          }}> Get Types </button>
+        </div>
+      );
+    }
+
     return (
-      <div>
-        <button onClick={()=> {
-          this.getPokeTypes()
-        }}> Get Types </button>
-      </div>
-    );
+      <img src="https://media.giphy.com/media/yhfTY8JL1wIAE/giphy.gif" />
+    )
   }
 }
 
