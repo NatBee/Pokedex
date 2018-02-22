@@ -3,22 +3,30 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { setPokeTypes } from '../../actions/index';
 import { getTypes } from '../../helper';
+import Card from '../'
 
 class FakeContainer extends Component {
 
-   getPokeTypes = async () => {
+   componentDidMount = async () => {
     const pokeTypes = await getTypes();
     await this.props.setPokeTypes(pokeTypes);
   }
 
   render() {
+
+    if(this.props.pokeTypes.length > 0) {
+      return (
+        <div>
+          <button onClick={()=> {
+            this.getPokeTypes()
+          }}> Get Types </button>
+        </div>
+      );
+    }
+
     return (
-      <div>
-        <button onClick={()=> {
-          this.getPokeTypes()
-        }}> Get Types </button>
-      </div>
-    );
+      <img src="https://thumbs.gfycat.com/DeliciousAllCattle-max-1mb.gif" />
+    )
   }
 }
 
