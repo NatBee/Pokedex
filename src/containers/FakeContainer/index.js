@@ -2,15 +2,15 @@ import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { fakeAction } from '../../actions';
+
 class FakeContainer extends Component {
 
   render() {
     return (
       <div>
         <button onClick={()=> {
-          this.props.fakeAction()
-          alert('FAKE')
-        }}> FAKE </button>
+          this.props.getPokeTypes()
+        }}> Get Types </button>
       </div>
     );
   }
