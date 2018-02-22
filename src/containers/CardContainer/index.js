@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { setPokeTypes } from '../../actions/index';
 import { getTypes, getPokemonData } from '../../helper';
 import Card from '../Card/Card';
+import PokeCard from '../PokeCard/PokeCard';
 
 class CardContainer extends Component {
   constructor(props) {
@@ -19,16 +20,27 @@ class CardContainer extends Component {
   }
 
   getPokemon = async (value) => {
-    const type = this.props.pokeTypes.filter( poke => poke.id === value )
-    const pokemon = await getPokemonData(type[0].pokemon)
-    console.log(pokemon)
-    this.setState({pokemon})
-    console.log(this.state.pokemon)
+    const type = this.props.pokeTypes.filter( poke => poke.id === value );
+    const pokemon = await getPokemonData(type[0].pokemon);
+    this.setState({pokemon});
+  }
+
+  renderPokemon = () => {
+    const poke = this.state.pokemon
+    return poke.map(info => {
+      return (
+        <PokeCard
+          type={info.type}
+          name={info.name}
+          sprite={info.sprite}
+          weight={info.weight}
+        />
+      )
+    })
   }
 
   renderCards = () => {
     const pokemon = this.props.pokeTypes;
-    console.log(pokemon)
     return pokemon.map(poke => {
       return (
         <Card 
@@ -47,6 +59,7 @@ class CardContainer extends Component {
       return (
         <div>
           {this.renderCards()}
+          {this.renderPokemon()}
         </div>
       );
     }
