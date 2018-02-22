@@ -5,7 +5,7 @@ import { setPokeTypes } from '../../actions/index';
 import { getTypes } from '../../helper';
 import Card from '../Card/Card';
 
-class FakeContainer extends Component {
+export class CardContainer extends Component {
 
    componentDidMount = async () => {
     const pokeTypes = await getTypes();
@@ -41,7 +41,7 @@ class FakeContainer extends Component {
   }
 }
 
-FakeContainer.propTypes = {
+CardContainer.propTypes = {
   fake: shape({ fake: string }),
   fakeAction: func.isRequired
 };
@@ -53,4 +53,4 @@ const mapStateToProps = (store) => ({
 const mapDispatchToProps = dispatch => ({ 
   setPokeTypes: (pokeTypes) => dispatch(setPokeTypes(pokeTypes))
 });
-export default connect(mapStateToProps, mapDispatchToProps)(FakeContainer);
+export default connect(mapStateToProps, mapDispatchToProps)(CardContainer);

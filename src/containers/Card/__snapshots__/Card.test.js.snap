@@ -1,10 +1,10 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`App should match the snapshot 1`] = `
+exports[`Card container should match the snapshot 1`] = `
 ShallowWrapper {
   "length": 1,
   Symbol(enzyme.__root__): [Circular],
-  Symbol(enzyme.__unrendered__): <App />,
+  Symbol(enzyme.__unrendered__): <Card />,
   Symbol(enzyme.__renderer__): Object {
     "batchedUpdates": [Function],
     "getNode": [Function],
@@ -18,14 +18,10 @@ ShallowWrapper {
     "nodeType": "host",
     "props": Object {
       "children": Array [
-        <h1
-          className="header"
-        >
-           POKéDEX 
-        </h1>,
-        <Connect(CardContainer) />,
+        <h3 />,
+        <h3 />,
+        <h3 />,
       ],
-      "className": "App",
     },
     "ref": null,
     "rendered": Array [
@@ -34,24 +30,36 @@ ShallowWrapper {
         "key": undefined,
         "nodeType": "host",
         "props": Object {
-          "children": " POKéDEX ",
-          "className": "header",
+          "children": undefined,
         },
         "ref": null,
-        "rendered": " POKéDEX ",
-        "type": "h1",
+        "rendered": null,
+        "type": "h3",
       },
       Object {
         "instance": null,
         "key": undefined,
-        "nodeType": "class",
-        "props": Object {},
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
         "ref": null,
         "rendered": null,
-        "type": [Function],
+        "type": "h3",
+      },
+      Object {
+        "instance": null,
+        "key": undefined,
+        "nodeType": "host",
+        "props": Object {
+          "children": undefined,
+        },
+        "ref": null,
+        "rendered": null,
+        "type": "h3",
       },
     ],
-    "type": "div",
+    "type": "article",
   },
   Symbol(enzyme.__nodes__): Array [
     Object {
@@ -60,14 +68,10 @@ ShallowWrapper {
       "nodeType": "host",
       "props": Object {
         "children": Array [
-          <h1
-            className="header"
-          >
-             POKéDEX 
-          </h1>,
-          <Connect(CardContainer) />,
+          <h3 />,
+          <h3 />,
+          <h3 />,
         ],
-        "className": "App",
       },
       "ref": null,
       "rendered": Array [
@@ -76,24 +80,36 @@ ShallowWrapper {
           "key": undefined,
           "nodeType": "host",
           "props": Object {
-            "children": " POKéDEX ",
-            "className": "header",
+            "children": undefined,
           },
           "ref": null,
-          "rendered": " POKéDEX ",
-          "type": "h1",
+          "rendered": null,
+          "type": "h3",
         },
         Object {
           "instance": null,
           "key": undefined,
-          "nodeType": "class",
-          "props": Object {},
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
           "ref": null,
           "rendered": null,
-          "type": [Function],
+          "type": "h3",
+        },
+        Object {
+          "instance": null,
+          "key": undefined,
+          "nodeType": "host",
+          "props": Object {
+            "children": undefined,
+          },
+          "ref": null,
+          "rendered": null,
+          "type": "h3",
         },
       ],
-      "type": "div",
+      "type": "article",
     },
   ],
   Symbol(enzyme.__options__): Object {
