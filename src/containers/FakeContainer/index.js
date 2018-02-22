@@ -3,10 +3,11 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { setPokeTypes } from '../../actions/index';
 import { getTypes } from '../../helper';
+import Card from '../'
 
 class FakeContainer extends Component {
 
-   getPokeTypes = async () => {
+   componentDidMount = async () => {
     const pokeTypes = await getTypes();
     await this.props.setPokeTypes(pokeTypes);
   }
@@ -24,7 +25,7 @@ class FakeContainer extends Component {
     }
 
     return (
-      <img src="https://media.giphy.com/media/yhfTY8JL1wIAE/giphy.gif" />
+      <img src="https://thumbs.gfycat.com/DeliciousAllCattle-max-1mb.gif" />
     )
   }
 }
