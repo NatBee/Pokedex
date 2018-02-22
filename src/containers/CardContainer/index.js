@@ -5,11 +5,15 @@ import { setPokeTypes } from '../../actions/index';
 import { getTypes } from '../../helper';
 import Card from '../Card/Card';
 
-export class CardContainer extends Component {
+class CardContainer extends Component {
 
-   componentDidMount = async () => {
+  componentDidMount = async () => {
     const pokeTypes = await getTypes();
     await this.props.setPokeTypes(pokeTypes);
+  }
+
+  getPokemon = async (value) => {
+    console.log(value)
   }
 
   renderCards = () => {
@@ -18,8 +22,10 @@ export class CardContainer extends Component {
     return pokemon.map(poke => {
       return (
         <Card 
+          id={poke.id}
           name={poke.name}
           pokemon={poke.pokemon}
+          getPokemon={this.getPokemon}
         />
       )
     })

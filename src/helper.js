@@ -12,3 +12,19 @@ export const getTypes = async () => {
     throw Error;
   }
 }
+
+export const getPokemon = async () => {
+  try{
+    const pokemonData = await fetch('http://localhost:3001/pokemon/:id', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    })
+    const pokemonResults = await pokemonData.json();
+    console.log(pokemonResults)
+    return pokemonResults;
+  } catch (error) {
+    throw Error;
+  }
+}
