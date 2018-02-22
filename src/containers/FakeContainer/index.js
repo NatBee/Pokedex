@@ -6,9 +6,9 @@ import { getTypes } from '../../helper';
 
 class FakeContainer extends Component {
 
-   getPokeTypes = () => {
-    const pokeTypes = getTypes();
-    //setPokeTypes(pokeTypes)
+   getPokeTypes = async () => {
+    const pokeTypes = await getTypes();
+    await setPokeTypes(pokeTypes);
   }
 
   render() {
@@ -27,8 +27,11 @@ FakeContainer.propTypes = {
   fakeAction: func.isRequired
 };
 
-const mapStateToProps = ({ fake }) => ({ fake });
-const mapDispatchToProps = dispatch => ({ fakeAction:
-  () => dispatch(fakeAction())
+const mapStateToProps = (state) => ({ 
+  pokeTypes: state.pokeTypes
+});
+
+const mapDispatchToProps = dispatch => ({ 
+  setPokeTypes: (pokeTypes) => dispatch(setPokeTypes(pokeTypes))
 });
 export default connect(mapStateToProps, mapDispatchToProps)(FakeContainer);
