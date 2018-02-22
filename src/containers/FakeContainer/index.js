@@ -1,15 +1,21 @@
 import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
-import { fakeAction } from '../../actions';
+import { setPokeTypes } from '../../actions';
+import { getTypes } from '../../helper';
 
 class FakeContainer extends Component {
+
+   getPokeTypes = () => {
+    const pokeTypes = getTypes();
+    //setPokeTypes(pokeTypes)
+  }
 
   render() {
     return (
       <div>
         <button onClick={()=> {
-          this.props.getPokeTypes()
+          this.getPokeTypes()
         }}> Get Types </button>
       </div>
     );

@@ -9,6 +9,7 @@ export const getTypes = async () => {
 
     const types = await typeData.json();
     console.log(types)
+    return types;
   } catch (error) {
     throw Error;
   }

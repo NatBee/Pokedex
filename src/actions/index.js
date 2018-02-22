@@ -1,1 +1,4 @@
-export const fakeAction = () => ({ type: 'FAKE'})
+export const setPokeTypes = (pokeTypes) => ({ 
+  type: 'SET_TYPE',
+  pokeTypes
+})

@@ -1,8 +1,10 @@
-const fakeReducer = (state='this is a fake action', action) => {
+const typeReducer = (state=[], action) => {
   switch (action.type) {
-  default:
-    return state;
+    case 'SET_TYPE':
+      return action.type
+    default:
+      return state;
   }
 };
 
-export default fakeReducer
+export default typeReducer
