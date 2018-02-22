@@ -1,14 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
-import { setPokeTypes } from '../../actions';
+import { setPokeTypes } from '../../actions/index';
 import { getTypes } from '../../helper';
 
 class FakeContainer extends Component {
 
    getPokeTypes = async () => {
     const pokeTypes = await getTypes();
-    await setPokeTypes(pokeTypes);
+    await this.props.setPokeTypes(pokeTypes);
   }
 
   render() {
