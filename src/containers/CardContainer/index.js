@@ -6,6 +6,12 @@ import { getTypes, getPokemonData } from '../../helper';
 import Card from '../Card/Card';
 
 class CardContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      pokemon: []
+    }
+  }
 
   componentDidMount = async () => {
     const pokeTypes = await getTypes();
@@ -16,8 +22,13 @@ class CardContainer extends Component {
     const type = this.props.pokeTypes.filter( poke => poke.id === value )
     console.log(type)
     console.log(type[0].pokemon)
-    const pokemon = await type[0].pokemon.map( poke => getPokemonData(poke))
+    const pokemon = await type[0].pokemon.map( async poke => {
+      await Promise.all(getPokemonData(poke)))
+    }
+    // Promise.all(pokemon)
     console.log(pokemon)
+    this.setState({pokemon})
+    console.log(this.state.pokemon)
   }
 
   renderCards = () => {
