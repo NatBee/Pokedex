@@ -12,12 +12,26 @@ class FakeContainer extends Component {
     await this.props.setPokeTypes(pokeTypes);
   }
 
+  renderCards = () => {
+    const pokemon = this.props.pokeTypes;
+    console.log(pokemon)
+    return pokemon.map(poke => {
+      return (
+        <Card 
+          id={poke.id}
+          name={poke.name}
+          pokemon={poke.pokemon}
+        />
+      )
+    })
+  }
+
   render() {
 
     if(this.props.pokeTypes.length > 0) {
       return (
         <div>
-          <Card />
+          {this.renderCards()}
         </div>
       );
     }
@@ -33,8 +47,8 @@ FakeContainer.propTypes = {
   fakeAction: func.isRequired
 };
 
-const mapStateToProps = (state) => ({ 
-  pokeTypes: state.pokeTypes
+const mapStateToProps = (store) => ({ 
+  pokeTypes: store.pokeTypes
 });
 
 const mapDispatchToProps = dispatch => ({ 

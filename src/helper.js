@@ -6,9 +6,7 @@ export const getTypes = async () => {
         'Content-Type': 'application/json'
       }
     })
-
     const types = await typeData.json();
-    console.log(types)
     return types;
   } catch (error) {
     throw Error;
