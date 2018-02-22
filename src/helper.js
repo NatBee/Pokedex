@@ -13,9 +13,10 @@ export const getTypes = async () => {
   }
 }
 
-export const getPokemon = async () => {
+export const getPokemonData = async (id) => {
+
   try{
-    const pokemonData = await fetch('http://localhost:3001/pokemon/:id', {
+    const pokemonData = await fetch(`http://localhost:3001/pokemon/${id}`, {
       method: 'GET',
       headers: {
         'Content-Type': 'application/json'
