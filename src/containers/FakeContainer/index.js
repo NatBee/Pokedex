@@ -18,7 +18,6 @@ class FakeContainer extends Component {
     return pokemon.map(poke => {
       return (
         <Card 
-          id={poke.id}
           name={poke.name}
           pokemon={poke.pokemon}
         />
