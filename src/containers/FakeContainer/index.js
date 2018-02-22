@@ -3,7 +3,7 @@ import PropTypes, { shape, func, string } from 'prop-types';
 import { connect } from 'react-redux';
 import { setPokeTypes } from '../../actions/index';
 import { getTypes } from '../../helper';
-import Card from '../'
+import Card from '../Card/Card';
 
 class FakeContainer extends Component {
 
@@ -17,9 +17,7 @@ class FakeContainer extends Component {
     if(this.props.pokeTypes.length > 0) {
       return (
         <div>
-          <button onClick={()=> {
-            this.getPokeTypes()
-          }}> Get Types </button>
+          <Card />
         </div>
       );
     }
